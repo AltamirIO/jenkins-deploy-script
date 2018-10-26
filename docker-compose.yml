@@ -1,0 +1,22 @@
+version: "3.4"
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    volumes:
+      - /mnt/jenkins_data/:/var/jenkins_home
+    expose:
+      - 8080
+    ports:
+      - 50000:50000
+  nginx: 
+    image: nginx:latest
+    restart: always
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - /etc/letsencrypt:/etc/letsencrypt
+    ports:
+      - 80:80
+      - 443:443
+volumes:
+  jenkins_home:
