@@ -24,7 +24,8 @@ ufw default deny incoming
 ufw default allow outgoing
 ufw allow 22/tcp
 ufw allow 443/tcp
-
+ufw allow 50000/tcp
+ufw allow 50000/udp
 docker-compose down;
 ufw disable;
 
